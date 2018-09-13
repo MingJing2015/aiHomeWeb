@@ -1,0 +1,74 @@
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand" style="padding:0;">
+                <img src="./assets/imgs/logo.png" alt="cWorks logo">
+            </a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">&nbsp;</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li *ngFor="let item of menuMyItems" class={{item.active}}>
+                    <a routerLink={{item.path}}{{item.parameterID}}{{item.random}} routerLinkActive="active fluffy">{{item.linkName}}</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li *ngIf="userLogin">
+                        <a routerLink="/dashboard" routerLinkActive="active fluffy">Dashboard</a>
+                    </li>
+                <li *ngIf="showLogout">
+                    <a routerLink="/login" routerLinkActive="active fluffy">Login</a>
+                </li>
+                <li *ngIf="userLogin">
+                    <a routerLink="" routerLinkActive="active fluffy">[{{userLogin}}]</a>
+                </li>
+                <li *ngIf="userLogin">
+                    <a routerLink="/login/login/1" routerLinkActive="active fluffy">Logout</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="row">
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li role="presentation" *ngFor="let item of tabItems" class={{item.active}}>
+                <a routerLink="{{item.path}}{{item.parameterID}}" routerLinkActive="active fluffy">{{item.linkName}}</a>
+            </li>
+        </ul>
+        <br/>
+        <div class="container col-lg-3 col-md-4 col-sm-6" *ngFor="let item of devices">
+            <div class="thumbnail">
+                <img src={{item.image_on}}>
+                <div class="caption">
+                    <h3 class="caption_h3">
+                        <strong>{{item.name}}</strong>
+                    </h3>
+                    <p class="pull-right">
+                        {{item.status}}
+                    </p>
+                    <p>Device status: </p>
+                    <div class="row" style="padding: 3px 10px">
+                        <p>
+                            <!-- <a routerLink="/detail/detail/{{item.goods_id}}" class="btn btn-primary col-md-6 col-sm-6 col-xs-6" role="button">Details</a> -->
+                            <!-- <a routerLink="/cart/cart/{{item.goods_id}}/{{item.goods_name}}/{{item.shop_price}}" class="btn btn-success col-md-6 col-sm-6 col-xs-6"
+                                role="button">On / OFF</a> -->
+                            <button type="button" class="btn btn-info col-md-6 col-sm-6 col-xs-6" (click)="changeStatus(item)">Details</button>
+                            <button type="button" class="btn btn-primary col-md-6 col-sm-6 col-xs-6" (click)="changeStatus(item)">On / OFF</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

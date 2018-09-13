@@ -1,0 +1,16 @@
+<div  *ngIf="goods">
+  
+        <!--<ol class="breadcrumb col-lg-10 col-md-10 col-sm-12 col-xs-12" style="margin-top:0px; padding-top:0px;">-->
+        <ol class="breadcrumb col-lg-10 col-md-10 col-sm-12 col-xs-12">
+      
+          <!--<li><a href="#">Home</a></li>-->
+          <span class="glyphicon glyphicon-hand-right"></span>&nbsp;
+          <!--<li  *ngFor="let item of menuMyItems"><a routerLink={{item.path}}{{item.parameterID}}{{item.random}} routerLinkActive="active fluffy">{{item.linkName}}</a></li>-->
+          <li  *ngFor="let item of menuMyItems"><a routerLink={{item.path}}{{item.parameterID}} routerLinkActive="active fluffy">{{item.linkName}}</a></li>
+       
+          <li class="active">{{goods.goods_name}}</li>
+        
+         </ol>
+      </div>
+      
+      
