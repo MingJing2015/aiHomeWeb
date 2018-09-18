@@ -68,7 +68,7 @@ export class TypePageComponent implements AfterContentInit {
                         this.deviceTypes = items;
                         this.contractService.getDevices()
                             .then((result: any) => {
-                                console.log(result._body);
+                                //console.log(result._body);
                                 // Home category
                                 this.devices = JSON.parse(result._body).filter(device => (
                                     (device.deviceType === 1) || (device.deviceType === 2)));
@@ -87,7 +87,7 @@ export class TypePageComponent implements AfterContentInit {
                 case 2:
                     this.goodsService.getDeviceTypes_P().then((items) => {
                         this.deviceTypes = items;
-                        console.log(this.deviceTypes);
+                        //console.log(this.deviceTypes);
                         this.contractService.getDevices()
                             .then((result: any) => {
                                 // Home category
@@ -111,7 +111,7 @@ export class TypePageComponent implements AfterContentInit {
                 case 3:
                     this.goodsService.getDeviceTypes_P().then((items) => {
                         this.deviceTypes = items;
-                        console.log(this.deviceTypes);
+                        //console.log(this.deviceTypes);
                         this.contractService.getDevices()
                             .then((result: any) => {
                                 this.devices = JSON.parse(result._body).filter(device => (
@@ -152,7 +152,7 @@ export class TypePageComponent implements AfterContentInit {
                 case 5:
                     this.goodsService.getDeviceTypes_P().then((items) => {
                         this.deviceTypes = items;
-                        console.log(this.deviceTypes);
+                        //console.log(this.deviceTypes);
 
                         this.contractService.getDevices()
                             .then((result: any) => {
@@ -173,14 +173,14 @@ export class TypePageComponent implements AfterContentInit {
                 default:
 
                     let  num = +params['cat_id'];
-                    console.log(num);
+                    //console.log(num);
 
                     this.goodsService.getDeviceTypes_P().then((items) => {
                         this.deviceTypes = items;
                         // console.log(this.deviceTypes);
 
                         num = this.getDeviceTypeID_fromCatID(num);
-                        console.log('num:' + num);
+                        //console.log('num:' + num);
                         this.contractService.getDevices()
                             .then((result: any) => {
                                 this.devices = JSON.parse(result._body).filter(device => (
@@ -222,7 +222,7 @@ export class TypePageComponent implements AfterContentInit {
         return 0;
     }
 
-
+    //passes in an id and returns the objects with parent id equal to parameter id
     private getCategoryByID(id: number): Promise<Category[]> {
 
         return this.goodsService
@@ -236,7 +236,7 @@ export class TypePageComponent implements AfterContentInit {
         this.categories.forEach(element => {
             // console.log(element.cat_id);
             if (element.cat_id === id) {
-                console.log('return id: ' + element.deviceTypeID);
+                //console.log('return id: ' + element.deviceTypeID);
                 myid = element.deviceTypeID;
                 return myid; // good
             }
@@ -247,13 +247,15 @@ export class TypePageComponent implements AfterContentInit {
     //  In  then() ,  call a new function ************
     //  private getCategoryThenMenu(): Promise<MenuItem[]> {
     private getCategoryThenMenu(): Promise<void> {
-
+        console.log(this.getCategoryByID(0));
         return this.getCategoryByID(0)
             .then(() => this.createMenuItems());
+            //console.log(this.createMenuItems());
     }
 
     //  In  then() ,  call a new function ************
     private getCategoryThenTab(id: number): Promise<void> {
+        //console.log(this.getCategory());
         return this.getCategory()
             .then(() => this.createTabItems(id));
     }
@@ -266,6 +268,7 @@ export class TypePageComponent implements AfterContentInit {
 
         for (let i = 0; i < this.categories.length; i++) {
 
+            //what is the parent_id? how is it set
             if (this.categories[i].parent_id == 0) {
 
                 let t = this.categories[i];
@@ -281,6 +284,7 @@ export class TypePageComponent implements AfterContentInit {
                 // let random = Math.random();
 
                 if (this.getMenuActiveStatus(t.cat_id)) {
+
                     item.active = 'active';
                 }
 
@@ -289,6 +293,7 @@ export class TypePageComponent implements AfterContentInit {
                 //  console.log(item);
             }
         }
+        //console.log(this.menuMyItems);
     }
 
     getRandomString(len: number) {
@@ -341,7 +346,7 @@ export class TypePageComponent implements AfterContentInit {
                 //  **** !!!!
                 this.tabItems.push(item);
 
-                console.log(item);
+                //console.log(item);
             }
         }
     }
@@ -378,7 +383,7 @@ export class TypePageComponent implements AfterContentInit {
     }
 
     showGoods() {
-        console.log(this.goodsArray);
+        //console.log(this.goodsArray);
     }
 
     //  TODO: Remove this when we're done
@@ -396,11 +401,10 @@ export class TypePageComponent implements AfterContentInit {
         }
 
         this.contractService.setDeviceStatus(item).then((cardBalance) => {    // two are good, but different HTTP
-            console.log(cardBalance.ok);
+            //console.log(cardBalance.ok);
             if ( cardBalance.ok ) {
                 // location.reload();
             }
         });
     }
 }
-
