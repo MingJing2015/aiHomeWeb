@@ -61,18 +61,24 @@ export class TypePageComponent implements AfterContentInit {
             this.getCategoryThenTab(this.parameterTab);
 
             //  Get Goods data for Current Page to show, come from menu by clicked .....................
-            switch (this.parameterTab) {
+            //console.log(this.parameterTab);
 
+            //Need to fix this, hard coded not good
+            switch (this.parameterTab) {
                 case 1:  // Home security:
                     this.goodsService.getDeviceTypes_P().then((items) => {
                         this.deviceTypes = items;
+                        //console.log(this);
+                        console.log(this.contractService.getDevices())
                         this.contractService.getDevices()
                             .then((result: any) => {
                                 //console.log(result._body);
                                 // Home category
+                                console.log("Test", result);
                                 this.devices = JSON.parse(result._body).filter(device => (
                                     (device.deviceType === 1) || (device.deviceType === 2)));
                                 // Show image
+                                //console.log(this.devices);
                                 this.devices.forEach(element => {
                                     if (element.status === '1') {
                                         element.image_on = this.deviceTypes[element.deviceType - 1].img_on;
@@ -91,6 +97,7 @@ export class TypePageComponent implements AfterContentInit {
                         this.contractService.getDevices()
                             .then((result: any) => {
                                 // Home category
+                                // Have to create an association between category and device type. This is not it
                                 this.devices = JSON.parse(result._body).filter(device => (
                                     (device.deviceType === 3) || (device.deviceType === 4) ||
                                     (device.deviceType === 5) || (device.deviceType === 9) ||
@@ -131,7 +138,7 @@ export class TypePageComponent implements AfterContentInit {
                 case 4:
                     this.goodsService.getDeviceTypes_P().then((items) => {
                         this.deviceTypes = items;
-                        console.log(this.deviceTypes);
+                        //console.log(this.deviceTypes);
 
                         this.contractService.getDevices()
                             .then((result: any) => {
