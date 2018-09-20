@@ -11,8 +11,6 @@ import { TypePageComponent } from './views/type-page/type-page.component';
 import { HttpModule } from '@angular/http';
 import { BreadcrumbComponent } from './views/breadcrumb/breadcrumb.component';
 
-import { EqualValidator } from './equal-validator.directive';
-
 @NgModule({
     imports: [
         BrowserModule,
@@ -31,8 +29,7 @@ import { EqualValidator } from './equal-validator.directive';
     declarations: [
         AppComponent,
         TypePageComponent,
-        BreadcrumbComponent,
-        EqualValidator
+        BreadcrumbComponent
     ],
     bootstrap: [AppComponent]
 })

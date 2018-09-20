@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GoodsService }                     from '../../services/goods.service';
-import { Goods, Category, MenuItem }        from '../../models/defineClass';
+import { GoodsService } from '../../services/goods.service';
+import { Goods, Category, MenuItem } from '../../models/defineClass';
 
 @Component({
   selector: 'app-breadcrumb',

@@ -4,7 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { GoodsService } from '../../services/goods.service';
 import { Goods, MenuItem } from '../../models/defineClass';
-import { DeviceType, Device, Category } from '../../dataClass/defineClass';
+import { DeviceType, Device, Category } from '../../models/defineClass';
 import { switchMap } from 'rxjs/operators';
 import { CookieService } from 'angular2-cookie/core';
 import { ContractService } from '../../services/contract.service';
@@ -34,7 +34,6 @@ export class TypePageComponent implements AfterContentInit {
     deviceStatus: boolean; //  string ???
 
     constructor(private goodsService: GoodsService,
-        // private dataService: ProductService,
         private contractService: ContractService,
         private route: ActivatedRoute,
         private router: Router,
@@ -266,10 +265,10 @@ export class TypePageComponent implements AfterContentInit {
 
         for (let i = 0; i < this.categories.length; i++) {
 
-            if (this.categories[i].parent_id == 0) {
+            if (this.categories[i].parent_id === 0) {
 
-                let t = this.categories[i];
-                let item = {
+                const t = this.categories[i];
+                const item = {
                     id: 'menu' + i,
                     parameterID: i + 1,                //  1,2,3 ....
                     path: '/type-page/type-page/',
@@ -278,15 +277,10 @@ export class TypePageComponent implements AfterContentInit {
                     random: this.getRandomString(i + 1)     //  get random url tail for refresh
                 };
 
-                // let random = Math.random();
-
                 if (this.getMenuActiveStatus(t.cat_id)) {
                     item.active = 'active';
                 }
-
                 this.menuMyItems.push(item);
-
-                //  console.log(item);
             }
         }
     }
@@ -294,7 +288,6 @@ export class TypePageComponent implements AfterContentInit {
     getRandomString(len: number) {
 
         let str = '';
-
         for (let i = 0; i < len; i++) {
             str += '/1';
         }
@@ -308,11 +301,6 @@ export class TypePageComponent implements AfterContentInit {
     private createTabItems(id: number) {
         this.tabItems = [];
 
-        // console.log('create Tab  Items Method :  ##################  ');
-
-        let realID = id;
-        let rootMenuNum = 0;
-
         //  11,12,13 => 1,2,3
         if (id > 10) {
             id = Math.floor(id / 10);
@@ -320,27 +308,24 @@ export class TypePageComponent implements AfterContentInit {
 
         for (let i = 0; i < this.categories.length; i++) {
 
-            if (this.categories[i].parent_id == id) {
+            if (this.categories[i].parent_id === id) {
 
-                let t = this.categories[i];
-                let item = {
+                const t = this.categories[i];
+                const item = {
                     id: 'tab' + t.cat_id,
                     parameterID: t.cat_id,    // as cat_id: 101 -100
                     path: '/type-page/type-page/',
                     linkName: t.cat_name,
                     active: '',
                     //  ?? + id , to add length for url ??
-                    random: this.getRandomString(this.categories[i].cat_id % 10 + id)     //  get random url tail for refresh: because id is 11,12,13.. so %
+                    random: this.getRandomString(this.categories[i].cat_id % 10 + id)
+                    //  get random url tail for refresh: because id is 11,12,13.. so %
                 };
-
 
                 if (this.getTabActiveStatus(t.cat_id)) {
                     item.active = 'active';
                 }
-
-                //  **** !!!!
                 this.tabItems.push(item);
-
                 console.log(item);
             }
         }
@@ -351,30 +336,32 @@ export class TypePageComponent implements AfterContentInit {
         let i = this.parameterTab;
 
         //  Take case  10 , one grade category can not greator than 10 !!!!!!!!!!!!!!!!!
-
-        if (this.parameterTab >= 10)
+        if (this.parameterTab >= 10) {
             i = Math.floor(this.parameterTab / 10);
+        }
 
-        if (i == id)
+        if (i === id) {
             return true;
-        else
+        } else {
             return false;
+        }
     }
 
 
     private getTabActiveStatus(id: number) {
 
-        let i = this.parameterTab;
+        const i = this.parameterTab;
 
         //  Take case  10 , one grade category can not greator than 10 !!!!!!!!!!!!!!!!!
-
-        if (id < 10)
+        if (id < 10) {
             return false;  //  By menu selected, show all types , no active
+        }
 
-        if (i == id)
+        if (i === id) {
             return true;
-        else
+        } else {
             return false;
+        }
     }
 
     showGoods() {
