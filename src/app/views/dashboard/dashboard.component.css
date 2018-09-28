@@ -1,0 +1,214 @@
+/* [class*='col-'] {
+    float: left;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+[class*='col-']:last-of-type {
+    padding-right: 0;
+}
+a {
+    text-decoration: none;
+}
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+h3 {
+    text-align: center; margin-bottom: 0;
+}
+h4 {
+    position: relative;
+}
+.grid {
+    margin: 0;
+}
+.col-1-4 {
+    width: 25%;
+}
+.module {
+    padding: 20px;
+    text-align: center;
+    color: #eee;
+    max-height: 120px;
+    min-width: 120px;
+    background-color: #607D8B;
+    border-radius: 3px;
+}
+.module:hover {
+    background-color: #EEE;
+    cursor: pointer;
+    color: #607d8b;
+}
+.grid-pad {
+    padding: 10px 0;
+}
+.grid-pad > [class*='col-']:last-of-type {
+    padding-right: 20px;
+}
+@media (max-width: 600px) {
+    .module {
+        font-size: 10px;
+        max-height: 75px; }
+}
+@media (max-width: 1024px) {
+    .grid {
+        margin: 0;
+    }
+    .module {
+        min-width: 60px;
+    }
+} */
+
+/* .caption {
+
+    background-color: #BBD8DC;
+} */
+
+#main {
+    width: 1500px;
+    height: 850px;
+    position: relative;
+    margin: auto;
+}
+
+/* .mybody {
+    background-color: #002145; 
+} */
+
+.device {
+    position: absolute;
+    cursor:pointer;
+    width: 40px;
+    height: 40px;
+    border: 1px dotted #454545;
+    /* float: left; */
+}
+
+/* .logoBtn{
+    background:url(./assets/imgs/airType9.png) no-repeat;
+    cursor:pointer;
+    border:1px solid #ccc;
+    width:100px;
+    height:100px;
+}	
+
+.logoBtn{
+    background:url(./assets/imgs/airType9.png) no-repeat;
+    cursor:pointer;
+    border:none;
+    width:100px;
+    height:100px;
+}	 */
+
+
+#homeSecrityBtn{
+    background:url('http://jing2637.com/cworks/assets/imgs/homeSecrity9.png') no-repeat;
+    cursor:pointer;
+    border:1px dotted #454545;
+    width:100px;
+    height:100px;
+}
+
+#homeSecrityBtn:active  /* use Dot here */
+{   
+    background:url('http://jing2637.com/cworks/assets/imgs/homeSecrity9down.png') no-repeat;
+}
+
+#energyTypeBtn{
+    background:url('http://jing2637.com/cworks/assets/imgs/energyType9.png') no-repeat;
+    cursor:pointer;
+    border:1px dotted #454545;
+    width:100px;
+    height:100px;
+}
+
+#energyTypeBtn:active  /* use Dot here */
+{   
+    background:url('http://jing2637.com/cworks/assets/imgs/energyType9down.png') no-repeat;
+}
+
+#entertainmentTypeBtn{
+    background:url('http://jing2637.com/cworks/assets/imgs/entertainmentType9.png') no-repeat;
+    cursor:pointer;
+    border:1px dotted #454545;
+    width:100px;
+    height:100px;
+}
+
+#entertainmentTypeBtn:active  /* use Dot here */
+{   
+    background:url('http://jing2637.com/cworks/assets/imgs/entertainmentType9down.png') no-repeat;
+}
+
+#waterTypeBtn{
+    background:url('http://jing2637.com/cworks/assets/imgs/waterType9.png') no-repeat;
+    cursor:pointer;
+    border:1px dotted #454545;
+    width:100px;
+    height:100px;
+}
+
+#waterTypeBtn:active  /* use Dot here */
+{   
+    background:url('http://jing2637.com/cworks/assets/imgs/waterType9down.png') no-repeat;
+}
+
+#airTypeBtn{
+    background:url('http://jing2637.com/cworks/assets/imgs/airType9.png') no-repeat;
+    cursor:pointer;
+    border:1px dotted #454545;
+    width:100px;
+    height:100px;
+}
+
+#airTypeBtn:active  /* use Dot here */
+{   
+    /* background:url(../imgs/airType9down.png) no-repeat; */
+    background:url('http://jing2637.com/cworks/assets/imgs/airType9down.png') no-repeat;
+}
+
+.historyLogBtn{
+    background:url('http://jing2637.com/cworks/assets/imgs/historyLog.png') no-repeat;
+    cursor:pointer;
+    border:1px dotted #454545;
+    width:100px;
+    height:100px;
+}
+
+.historyLogBtn:active  /* use Dot here */
+{   
+    background:url('http://jing2637.com/cworks/assets/imgs/historyLogdown.png') no-repeat;
+}
+
+
+.informationBtn{
+    background:url('http://jing2637.com/cworks/assets/imgs/information.png') no-repeat;
+    cursor:pointer;
+    border:1px dotted #454545;
+    width:100px;
+    height:100px;
+}
+
+.informationBtn:active  /* use Dot here */
+{   
+    background:url('http://jing2637.com/cworks/assets/imgs/informationdown.png') no-repeat;
+}
+
+.zoom100Btn{
+    background:url('http://jing2637.com/cworks/assets/imgs/zoom100.png') no-repeat;
+    cursor:pointer;
+    border:1px dotted #454545;
+    width:100px;
+    height:100px;
+}
+
+.zoom100Btn:active  /* use Dot here */
+{   
+    background:url('http://jing2637.com/cworks/assets/imgs/zoom100down.png') no-repeat;
+}
+
+
+
+
+

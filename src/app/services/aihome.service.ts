@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Http, Response } from '@angular/http';
+import { DeviceType, Device, Floor, Category } from '../models/defineClass';
 
 @Injectable({
     providedIn: 'root'
 })
-export class ContractService {
+export class AihomeService {
 
+    private floorsUrl  = 'https://obscure-plateau-31248.herokuapp.com/api/floorsfast';   // no image data, so fast
     private devicesUrl = 'https://obscure-plateau-31248.herokuapp.com/api/devices';
+    private devTypeUrl = 'https://obscure-plateau-31248.herokuapp.com/api/devicetype';
 
     // constructor(private http: HttpClient) { }  // ??????????????? Http ????
     // constructor(private http: HttpClient) { }   // Can not be used : HttpClient ?????
@@ -22,6 +25,22 @@ export class ContractService {
             .catch(this.handleError);
     }
 
+
+    /** GET floors from the REST API heroku server */
+    getFloors(): Promise<any | void> {
+        return this.http.get(this.floorsUrl)
+            .toPromise()
+            .then(response => response)
+            .catch(this.handleError);
+    }
+
+    /** GET floors from the REST API heroku server */
+    getDevType(): Promise<any | void> {
+        return this.http.get(this.devTypeUrl)
+            .toPromise()
+            .then(response => response)
+            .catch(this.handleError);
+    }
 
     /** 2. set device status  **/
     setDeviceStatus(data: any): Promise<any> {

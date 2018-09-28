@@ -7,7 +7,7 @@ import { Goods, MenuItem } from '../../models/defineClass';
 import { DeviceType, Device, Category } from '../../models/defineClass';
 import { switchMap } from 'rxjs/operators';
 import { CookieService } from 'angular2-cookie/core';
-import { ContractService } from '../../services/contract.service';
+import { AihomeService } from '../../services/aihome.service';
 
 @Component({
     selector: 'app-type-page',
@@ -34,7 +34,7 @@ export class TypePageComponent implements AfterContentInit {
     deviceStatus: boolean; //  string ???
 
     constructor(private goodsService: GoodsService,
-        private contractService: ContractService,
+        private aihomeService: AihomeService,
         private route: ActivatedRoute,
         private router: Router,
         private cookieService: CookieService
@@ -65,7 +65,7 @@ export class TypePageComponent implements AfterContentInit {
                 case 1:  // Home security:
                     this.goodsService.getDeviceTypes_P().then((items) => {
                         this.deviceTypes = items;
-                        this.contractService.getDevices()
+                        this.aihomeService.getDevices()
                             .then((result: any) => {
                                 console.log(result._body);
                                 // Home category
@@ -87,7 +87,7 @@ export class TypePageComponent implements AfterContentInit {
                     this.goodsService.getDeviceTypes_P().then((items) => {
                         this.deviceTypes = items;
                         console.log(this.deviceTypes);
-                        this.contractService.getDevices()
+                        this.aihomeService.getDevices()
                             .then((result: any) => {
                                 // Home category
                                 this.devices = JSON.parse(result._body).filter(device => (
@@ -111,7 +111,7 @@ export class TypePageComponent implements AfterContentInit {
                     this.goodsService.getDeviceTypes_P().then((items) => {
                         this.deviceTypes = items;
                         console.log(this.deviceTypes);
-                        this.contractService.getDevices()
+                        this.aihomeService.getDevices()
                             .then((result: any) => {
                                 this.devices = JSON.parse(result._body).filter(device => (
                                     (device.deviceType === 6) || (device.deviceType === 10)));
@@ -132,7 +132,7 @@ export class TypePageComponent implements AfterContentInit {
                         this.deviceTypes = items;
                         console.log(this.deviceTypes);
 
-                        this.contractService.getDevices()
+                        this.aihomeService.getDevices()
                             .then((result: any) => {
                                 this.devices = JSON.parse(result._body).filter(device => (
                                     (device.deviceType === 7) || (device.deviceType === 7)));
@@ -153,7 +153,7 @@ export class TypePageComponent implements AfterContentInit {
                         this.deviceTypes = items;
                         console.log(this.deviceTypes);
 
-                        this.contractService.getDevices()
+                        this.aihomeService.getDevices()
                             .then((result: any) => {
                                 this.devices = JSON.parse(result._body).filter(device => (
                                     (device.deviceType === 8)));
@@ -180,7 +180,7 @@ export class TypePageComponent implements AfterContentInit {
 
                         num = this.getDeviceTypeID_fromCatID(num);
                         console.log('num:' + num);
-                        this.contractService.getDevices()
+                        this.aihomeService.getDevices()
                             .then((result: any) => {
                                 this.devices = JSON.parse(result._body).filter(device => (
                                     (device.deviceType === num)));
@@ -382,7 +382,7 @@ export class TypePageComponent implements AfterContentInit {
             item.image_on = this.deviceTypes[item.deviceType - 1].img_on;
         }
 
-        this.contractService.setDeviceStatus(item).then((cardBalance) => {    // two are good, but different HTTP
+        this.aihomeService.setDeviceStatus(item).then((cardBalance) => {    // two are good, but different HTTP
             console.log(cardBalance.ok);
             if ( cardBalance.ok ) {
                 // location.reload();

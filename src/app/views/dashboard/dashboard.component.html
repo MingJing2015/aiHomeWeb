@@ -1,0 +1,95 @@
+<nav class="navbar navbar-inverse">
+    <!-- <div class="container"> -->
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand" style="padding:0;">
+                <!-- <img src="http://jing2637.com/cworks/assets/imgs/logo.png" alt="cWorks logo" style="width:100px; height:100px; background-repeat: no-repeat;"> -->
+                <img src="http://jing2637.com/cworks/assets/imgs/logo.png" alt="cWorks logo" class="center" style="background-repeat: no-repeat; margin: auto 0">
+            </a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+             aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">&nbsp;</a>
+        </div>
+    <!-- </div> -->
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="padding-top: 5;" >
+        <input id="homeSecrityBtn" type="submit" value="" (click)="clickBtn1()">
+        <input id="energyTypeBtn" type="submit" value="" (click)="clickBtn2()">
+        <input id="entertainmentTypeBtn" type="submit" value="" (click)="clickBtn3()">
+        <input id="waterTypeBtn" type="submit" value="" (click)="clickBtn4()">
+        <input id="airTypeBtn" type="submit" value="" (click)="clickBtn5()">
+
+        <input class="historyLogBtn pull-right" type="submit" value="">
+        <input class="informationBtn pull-right" type="submit" value="">
+        <!-- <input class="zoom100Btn pull-right" type="submit" value=""> -->
+    </div>
+</nav>
+
+
+<!-- 
+<div class="row">
+    <div class="container">
+        <div class="col-md-offset-1 col-md-10">
+            <div class="grid grid-pad">
+
+                <a [routerLink]="['/admin/admin', 1]" class="col-1-4">
+                    <div class="module hero">
+                        <h4>Category</h4>
+                    </div>
+                </a>
+                <a [routerLink]="['/goods/goods']" class="col-1-4">
+                    <div class="module hero">
+                        <h4>Goods</h4>
+                    </div>
+                </a>
+                <a [routerLink]="['/userlist']" class="col-1-4">
+                    <div class="module hero">
+                        <h4>Users</h4>
+                    </div>
+                </a>
+                <a [routerLink]="['/detail/detail', 1]" class="col-1-4">
+                    <div class="module hero">
+                        <h4>comment</h4>
+                    </div>
+                </a>
+                <a [routerLink]="['/orderlist']" class="col-1-4">
+                    <div class="module hero">
+                        <h4>Order List</h4>
+                    </div>
+                </a>
+                <a [routerLink]="['/detail/detail', 1]" class="col-1-4">
+                    <div class="module hero">
+                        <h4>ordgoods</h4>
+                    </div>
+                </a>
+
+                <a [routerLink]="['/detail/detail', 1]" class="col-1-4">
+                    <div class="module hero">
+                        <h4>Table 1</h4>
+                    </div>
+                </a>
+
+                <a [routerLink]="['/heroes']" class="col-1-4">
+                    <div class="module hero">
+                        <h4>Hero List</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li role="presentation" *ngFor="let item of floors" class={{item.active}} (click)="clickTabBtn(item)">
+            <a routerLink="" routerLinkActive="active fluffy">{{item.name}}</a>
+        </li>
+    </ul>
+</div><br/>
+
+<div id="main"></div>
+

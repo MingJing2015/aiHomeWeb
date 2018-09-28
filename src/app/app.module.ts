@@ -7,6 +7,7 @@ import { InMemoryDataService } from './services/in-memory-data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TypePageComponent } from './views/type-page/type-page.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 
 import { HttpModule } from '@angular/http';
 import { BreadcrumbComponent } from './views/breadcrumb/breadcrumb.component';
@@ -29,6 +30,7 @@ import { BreadcrumbComponent } from './views/breadcrumb/breadcrumb.component';
     declarations: [
         AppComponent,
         TypePageComponent,
+        DashboardComponent,
         BreadcrumbComponent
     ],
     bootstrap: [AppComponent]

@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TypePageComponent } from './views/type-page/type-page.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/type-page/type-page/1', pathMatch: 'full' },
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    // { path: '', redirectTo: '/type-page/type-page/1', pathMatch: 'full' },
+    { path: 'dashboard',                component: DashboardComponent },
     { path: 'type-page/type-page/:cat_id', component: TypePageComponent },
     { path: 'type-page/type-page/:cat_id', component: TypePageComponent },
     { path: 'type-page/type-page/:cat_id/:x', component: TypePageComponent },

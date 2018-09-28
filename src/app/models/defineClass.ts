@@ -63,6 +63,15 @@ export class   DeviceType {
         public intro:       string) {}
 }
 
+export class   DeviceTypeMySQL {
+    constructor(
+        public id:          number,
+        public name:        string,
+        public description: string,
+        public categoryID:  number) {}
+}
+
+
 export class   Device {
     constructor(
         public id:          number,
@@ -76,6 +85,18 @@ export class   Device {
         public channel:     number,
         public status:      string) {}
 }
+
+
+export class   Floor {
+    constructor(
+        public id:          number,
+        public name:        string,
+        public image:       string,
+        public number:      number,
+        public active:      string,
+        public path:        string) {}
+}
+
 
 export class   CartItem {
     constructor(
